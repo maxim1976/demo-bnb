@@ -46,12 +46,39 @@ MAIL_DEFAULT_SENDER=noreply@gangcheng.com
 ```
 
 ### 5. Initialize Database
-After first deployment, run once via Railway CLI or dashboard:
+After first deployment, you need to create the database tables and sample data. You have two options:
+
+#### Option A: Using Railway Dashboard (Easier - No Installation)
+1. Go to your Railway project dashboard
+2. Click on your web service (the Flask app)
+3. Go to the **"Settings"** tab
+4. Scroll down to **"Deploy"** section
+5. Find **"Custom Start Command"** or use the **"Run Command"** feature
+6. In the Railway dashboard, click the **three dots (...)** next to your service
+7. Select **"Run a command"**
+8. Type: `python init_db.py`
+9. Click "Run"
+10. Check the logs to see "✅ Database initialized successfully!"
+
+#### Option B: Using Railway CLI (Advanced)
+First, install Railway CLI:
 ```bash
+npm install -g @railway/cli
+```
+
+Then run:
+```bash
+railway login
+railway link  # Select your project
 railway run python init_db.py
 ```
 
-Or use Railway's "One-off Command" feature in the dashboard.
+**What this does:**
+- Creates all database tables (rooms, users, bookings, contacts)
+- Adds 3 sample rooms (Mountain View Suite, Garden Room, Family Villa)
+- Creates admin user: `admin@gangcheng.com` / `admin123`
+
+⚠️ **Important**: Only run this ONCE after first deployment!
 
 ### 6. Access Your App
 Railway provides a URL like: `https://demo-bnb-production.up.railway.app`
