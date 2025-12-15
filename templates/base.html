@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>{% block title %}Gancheng B&B{% endblock %}</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms{% block tailwind_plugins %}{% endblock %}"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    {% block tailwind_extend %}{% endblock %}
+                },
+            },
+        }
+    </script>
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="font-display antialiased text-slate-900 bg-background-light dark:bg-background-dark">
+    {% block body %}
+    <!-- Top Navigation -->
+    <header class="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-gray-200 dark:bg-background-dark/90 dark:border-gray-800">
+        <div class="px-4 md:px-10 py-3 flex items-center justify-between max-w-[1280px] mx-auto w-full">
+            <a href="{{ url_for('index') }}" class="flex items-center gap-4 text-slate-900 dark:text-white">
+                <div class="size-8 text-primary">
+                    <svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <path clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor" fill-rule="evenodd"></path>
+                    </svg>
+                </div>
+                <h2 class="text-xl font-bold leading-tight tracking-tight">Gancheng B&B</h2>
+            </a>
+            {% block navigation %}
+            <nav class="flex items-center gap-8">
+                <a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="{{ url_for('index') }}">Home</a>
+                <a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="{{ url_for('all_rooms') }}">Rooms</a>
+                <a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="{{ url_for('about') }}">About</a>
+                <a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="{{ url_for('contact_page') }}">Contact</a>
+                {% if current_user.is_authenticated %}
+                <a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="{{ url_for('profile') }}">My Bookings</a>
+                {% if current_user.is_admin %}
+                <a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="{{ url_for('admin_dashboard') }}">Admin</a>
+                {% endif %}
+                {% endif %}
+            </nav>
+            {% endblock %}
+            {% block auth_section %}
+            {% if current_user.is_authenticated %}
+            <div class="flex items-center gap-4">
+                <span class="text-sm text-slate-600 dark:text-slate-300">{{ current_user.username }}</span>
+                <a href="{{ url_for('logout') }}" class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white text-sm font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+                    <span class="truncate">Logout</span>
+                </a>
+            </div>
+            {% else %}
+            <div class="flex items-center gap-3">
+                <a href="{{ url_for('login') }}" class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors">Sign In</a>
+                <a href="{{ url_for('register') }}" class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:bg-blue-700 transition-all">
+                    <span class="truncate">Sign Up</span>
+                </a>
+            </div>
+            {% endif %}
+            {% endblock %}
+        </div>
+    </header>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="max-w-[1280px] mx-auto px-4 md:px-10 pt-6">
+                {% for category, message in messages %}
+                    <div class="mb-4 p-4 rounded-lg {% if category == 'error' %}bg-red-50 text-red-800{% elif category == 'success' %}bg-green-50 text-green-800{% else %}bg-blue-50 text-blue-800{% endif %}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Main Content -->
+    {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    {% block footer %}
+    <footer class="w-full bg-slate-900 text-white py-8 mt-20">
+        <div class="max-w-[1280px] mx-auto px-4 md:px-10 text-center">
+            <p class="text-sm text-slate-400">© 2025 Gancheng B&B. All rights reserved.</p>
+        </div>
+    </footer>
+    {% endblock %}
+
+    {% block extra_js %}{% endblock %}
+    {% endblock body %}
+</body>
+</html>

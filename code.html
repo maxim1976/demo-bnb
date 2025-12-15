@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gancheng B&amp;B - Serenity in Hualien</title>
+<!-- Google Fonts: Plus Jakarta Sans & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display antialiased text-slate-900 bg-background-light dark:bg-background-dark">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-gray-200 dark:bg-background-dark/90 dark:border-gray-800">
+<div class="px-4 md:px-10 py-3 flex items-center justify-between max-w-[1280px] mx-auto w-full">
+<div class="flex items-center gap-4 text-slate-900 dark:text-white">
+<div class="size-8 text-primary">
+<svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-xl font-bold leading-tight tracking-tight">Gancheng B&amp;B</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-8 items-center">
+<nav class="flex items-center gap-8">
+<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="#">Rooms</a>
+<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="#">Experience</a>
+<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="#">Location</a>
+</nav>
+<button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:bg-blue-700 transition-all">
+<span class="truncate">Book Now</span>
+</button>
+</div>
+<!-- Mobile Menu Icon (Placeholder for functionality) -->
+<button class="md:hidden text-slate-900 dark:text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="flex-1 w-full max-w-[1280px] mx-auto flex flex-col">
+<!-- Hero Section -->
+<section class="w-full px-4 md:px-10 py-5">
+<div class="@container">
+<div class="flex min-h-[520px] flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-xl md:rounded-2xl items-center justify-center p-8 relative overflow-hidden" data-alt="Misty mountains and lush green landscape of Hualien" style='background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBJX_27S-ucOW4weKAqsuShKalIB-DaBA7nGTlaHg0ZzJT6Vk_f8HCNRcfXx_WP9LxjA7SX04O2yHY-9LWKeWXwW9dvWrycULAzUvew6I8nsA1LYYmoCzM0Ow2ttpFBBMFLMyJ_qsMJyN1NC4Ufj2ccMM_JIzIkc1Z6sUHMznUapW8l81jfYkb74oFsE1EJKfTfueXRWt8bU2mx8BPNcOLwiqBqjOoJZG_ACr4FGUJugOYFE-9tCHiiIrj047PglbYS66Vfq0ASDSw");'>
+<div class="flex flex-col gap-4 text-center max-w-3xl z-10">
+<h1 class="text-white text-4xl md:text-6xl font-black leading-tight tracking-tight drop-shadow-md">
+                                Experience Serenity in Hualien
+                            </h1>
+<h2 class="text-white/90 text-lg md:text-xl font-medium leading-relaxed drop-shadow-sm">
+                                A tranquil escape in the heart of Gancheng Village, where mountains meet the sky.
+                            </h2>
+</div>
+<button class="z-10 mt-4 flex cursor-pointer items-center justify-center rounded-lg h-12 px-8 bg-white text-primary text-base font-bold shadow-xl hover:bg-slate-100 transition-colors">
+<span class="truncate">Explore Our Rooms</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Philosophy Feature Section -->
+<section class="w-full px-4 md:px-10 py-12 md:py-20">
+<div class="flex flex-col gap-12 max-w-[960px] mx-auto">
+<div class="flex flex-col md:flex-row gap-8 items-start justify-between">
+<div class="flex flex-col gap-6 max-w-2xl">
+<h2 class="text-slate-900 dark:text-white text-3xl md:text-4xl font-bold leading-tight">
+                                Where Professional Service Meets Nature
+                            </h2>
+<p class="text-slate-600 dark:text-slate-300 text-lg leading-relaxed">
+                                Our philosophy is grounded in professional, attentive service to ensure your stay is as peaceful as the surrounding mountains. Immerse yourself in the tranquility of Gancheng Village, Ji'an Township. We blend modern comfort with the raw beauty of Hualien.
+                            </p>
+<button class="text-primary font-bold text-base flex items-center gap-2 hover:underline w-fit group">
+                                Read Our Story 
+                                <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Feature 1 -->
+<div class="flex flex-col gap-4 rounded-xl border border-gray-200 bg-white dark:bg-gray-800 dark:border-gray-700 p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">concierge</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">Professional Service</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Dedicated staff ready to assist with your itinerary and needs around the clock.</p>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="flex flex-col gap-4 rounded-xl border border-gray-200 bg-white dark:bg-gray-800 dark:border-gray-700 p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">spa</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">Attentive Care</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">We pay attention to every detail, from fresh linens to locally sourced welcome teas.</p>
+</div>
+</div>
+<!-- Feature 3 -->
+<div class="flex flex-col gap-4 rounded-xl border border-gray-200 bg-white dark:bg-gray-800 dark:border-gray-700 p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">landscape</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">Peaceful Atmosphere</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Located away from the city noise, enjoy the sounds of nature and fresh mountain air.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Rooms Section -->
+<section class="w-full px-4 md:px-10 py-10 bg-white dark:bg-gray-900 rounded-3xl my-8">
+<div class="max-w-[960px] mx-auto flex flex-col">
+<div class="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
+<div class="flex flex-col">
+<span class="text-primary font-bold tracking-wider text-sm uppercase mb-2">Accommodations</span>
+<h2 class="text-slate-900 dark:text-white text-3xl md:text-4xl font-bold leading-tight">Your Private Sanctuary</h2>
+</div>
+<a class="hidden md:flex text-slate-600 dark:text-slate-400 font-medium hover:text-primary items-center gap-1" href="#">
+                            View all rooms <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Room 1 -->
+<div class="group cursor-pointer flex flex-col gap-4">
+<div class="w-full aspect-[4/3] overflow-hidden rounded-xl bg-gray-100 relative">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Modern hotel room interior with large window facing mountains" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAfSeuNAoDegBpufzWqzdrSSVT14xZxtfoHxcfSyc69724GJU9OoSIUQ9XtIdldIX6lt-3YYJnOEp2c-UWwoCtef72BPrWe9CoG54q8ytDqo194-mkyJhSaYvelJcHxAi0JfV7VblOgi0Ed7iSUs6kjNHJ8eUiDpwjQaTvwWEKdQJxHiVcY1uMXVAtLADX9Obg2YUvP16PD5qEF_0dU3dAREY5gZFoR_b5EKozOotoV4BnsLAlCZy5VFWhp8FBIWKn7wKZ3YJMzZZs");'></div>
+<div class="absolute top-3 right-3 bg-white/90 dark:bg-black/80 px-3 py-1 rounded-full text-xs font-bold text-slate-900 dark:text-white backdrop-blur-sm">
+                                    Double
+                                </div>
+</div>
+<div>
+<h3 class="text-slate-900 dark:text-white text-xl font-bold mb-1 group-hover:text-primary transition-colors">Mountain View Suite</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Panoramic views of the Central Mountain Range with private balcony.</p>
+<div class="mt-3 flex gap-2 text-slate-400">
+<span class="material-symbols-outlined text-[20px]" title="Wifi">wifi</span>
+<span class="material-symbols-outlined text-[20px]" title="AC">ac_unit</span>
+<span class="material-symbols-outlined text-[20px]" title="Bathtub">bathtub</span>
+</div>
+</div>
+</div>
+<!-- Room 2 -->
+<div class="group cursor-pointer flex flex-col gap-4">
+<div class="w-full aspect-[4/3] overflow-hidden rounded-xl bg-gray-100 relative">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Cozy bedroom with garden access and warm lighting" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD3U8bU2YjeeHA7KtMjl87sGK3BQo3c4yxM1vmVBsjlk0E5hd1kaF_kUv3tZCMdjl19a1dHO9kjtyKwSVFfxjl7gQbbuuPLIhsyAvtx-frxaULsbn99DaMIdF3NfNNdZS7sbp5Mck6yZ2ov12BJNAxUmeSqNrBvmwWG2SBszwhMlvXq_cW6QA5lnuBhENmkm3EQw51eS0XalhXND33EldbotLjBmpPtCVjub5F12fAWtU8FJlGq1Vh-n9TqS2LD1DF68WqvddGCdHQ");'></div>
+<div class="absolute top-3 right-3 bg-white/90 dark:bg-black/80 px-3 py-1 rounded-full text-xs font-bold text-slate-900 dark:text-white backdrop-blur-sm">
+                                    Queen
+                                </div>
+</div>
+<div>
+<h3 class="text-slate-900 dark:text-white text-xl font-bold mb-1 group-hover:text-primary transition-colors">Garden Room</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Direct access to our lush private gardens, perfect for morning meditation.</p>
+<div class="mt-3 flex gap-2 text-slate-400">
+<span class="material-symbols-outlined text-[20px]" title="Wifi">wifi</span>
+<span class="material-symbols-outlined text-[20px]" title="AC">ac_unit</span>
+<span class="material-symbols-outlined text-[20px]" title="Garden">yard</span>
+</div>
+</div>
+</div>
+<!-- Room 3 -->
+<div class="group cursor-pointer flex flex-col gap-4">
+<div class="w-full aspect-[4/3] overflow-hidden rounded-xl bg-gray-100 relative">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Spacious living area with multiple beds for families" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAc5I5gOEfXLGf85VNLedCV4wKwVtoL-tk7VCdHA4AcLKmHwT49rWefxSZvPhvAoObl2kBvADc_uXUD-FUsROyUmPviYgDmVbWfzV3NJ1ccsmf9sBHI5LF6VG6pcS6wkSSMnWyhmRn4_80IUyto-pBoQdwE7xXrkT6vPJ8bt1XSkXrV5InMpRT0Z0Ler-heyhUhHTgKk3zBI0-lSuedBU6Bl7G3gLuajY7xtavskWjFhPoWsMRDUtAMXsWxgbKtuVAlUOflDgCAYWI");'></div>
+<div class="absolute top-3 right-3 bg-white/90 dark:bg-black/80 px-3 py-1 rounded-full text-xs font-bold text-slate-900 dark:text-white backdrop-blur-sm">
+                                    Family
+                                </div>
+</div>
+<div>
+<h3 class="text-slate-900 dark:text-white text-xl font-bold mb-1 group-hover:text-primary transition-colors">Family Villa</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Spacious accommodation for the whole family with separate living area.</p>
+<div class="mt-3 flex gap-2 text-slate-400">
+<span class="material-symbols-outlined text-[20px]" title="Wifi">wifi</span>
+<span class="material-symbols-outlined text-[20px]" title="Kitchen">kitchen</span>
+<span class="material-symbols-outlined text-[20px]" title="TV">tv</span>
+</div>
+</div>
+</div>
+</div>
+<div class="md:hidden mt-6 flex justify-center">
+<a class="text-primary font-bold text-sm flex items-center gap-1" href="#">
+                            View all rooms <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Location Section -->
+<section class="w-full px-4 md:px-10 py-12 md:py-20">
+<div class="max-w-[960px] mx-auto grid md:grid-cols-2 gap-10 items-center">
+<div class="flex flex-col gap-6 order-2 md:order-1">
+<div class="flex flex-col gap-3">
+<span class="text-primary font-bold tracking-wider text-sm uppercase">Location</span>
+<h2 class="text-slate-900 dark:text-white text-3xl md:text-4xl font-bold leading-tight">Discover Gancheng Village</h2>
+</div>
+<p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+                            Nestled in Ji'an Township, our B&amp;B is perfectly positioned for you to explore the natural wonders of Hualien. We are just a short drive from the city center yet surrounded by tranquil rice paddies and the majestic Central Mountain Range.
+                        </p>
+<div class="flex flex-col gap-3 mt-2">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">location_on</span>
+<div>
+<p class="font-bold text-slate-900 dark:text-white">Our Address</p>
+<p class="text-slate-500 text-sm">No. 123, Gancheng 2nd St, Ji'an Township, Hualien County, Taiwan</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">train</span>
+<div>
+<p class="font-bold text-slate-900 dark:text-white">Transport</p>
+<p class="text-slate-500 text-sm">15 mins from Hualien Train Station</p>
+</div>
+</div>
+</div>
+<button class="mt-2 w-fit flex items-center justify-center rounded-lg h-10 px-5 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white text-sm font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                            Open in Google Maps
+                        </button>
+</div>
+<div class="order-1 md:order-2 h-full min-h-[300px] w-full bg-slate-100 rounded-2xl overflow-hidden relative">
+<!-- Stylized Map Placeholder -->
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Map view of Hualien showing mountains and coast" data-location="Hualien" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDDYOndNgMZInR2KttZ5xhjQhELS4YptzOwG01Bk6mUp_9mh6VsKLoQbqW-W-9HwTHu51RGvIKfRXiPgymdXjwQL4FW3At-B8ydLCAjwpgUQwUM-rAivf-Jn_lVuvHXCVoXVGr82HqM62dkJfZROGKXYHzXFQ8HXdROfyNQL3FMHyC5Y_-iT6dFbsaGalkfElDBLkHYNJjp6EOMZKngxFgYWzTOUQwU3GKMjyYq0-rLggoTu72w2rTLId9Zrvtup46-kfwWcb4HvDE");'>
+<div class="absolute inset-0 bg-black/10"></div>
+</div>
+<!-- Marker Pin Overlay -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+<div class="bg-primary text-white p-2 rounded-full shadow-lg animate-bounce">
+<span class="material-symbols-outlined block">home_pin</span>
+</div>
+<div class="bg-white px-3 py-1 rounded-md shadow-md mt-2 text-xs font-bold text-slate-900">
+                                 We are here
+                             </div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-white border-t border-slate-200 dark:bg-background-dark dark:border-slate-800 py-10">
+<div class="max-w-[1280px] mx-auto px-4 md:px-10 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-3">
+<div class="size-6 text-slate-900 dark:text-white">
+<svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="text-lg font-bold text-slate-900 dark:text-white">Gancheng B&amp;B</span>
+</div>
+<div class="flex flex-wrap justify-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-400">
+<a class="hover:text-primary" href="#">About Us</a>
+<a class="hover:text-primary" href="#">Rooms</a>
+<a class="hover:text-primary" href="#">Contact</a>
+<a class="hover:text-primary" href="#">Privacy Policy</a>
+</div>
+<div class="text-slate-500 text-sm">
+                    © 2024 Gancheng B&amp;B. All rights reserved.
+                </div>
+</div>
+</footer>
+</div>
+</body></html>

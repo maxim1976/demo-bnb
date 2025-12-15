@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}Our Story - Gancheng B&B{% endblock %}
+
+{% block content %}
+    <section class="w-full px-4 md:px-10 py-20 bg-gradient-to-br from-primary/5 to-blue-50 dark:from-primary/10 dark:to-gray-800">
+        <div class="max-w-[960px] mx-auto text-center">
+            <h1 class="text-slate-900 dark:text-white text-5xl md:text-6xl font-bold leading-tight mb-6">Our Story</h1>
+            <p class="text-slate-600 dark:text-slate-300 text-xl max-w-2xl mx-auto">
+                A journey of passion, dedication, and the love for Hualien's natural beauty
+            </p>
+        </div>
+    </section>
+
+    <!-- Story Content -->
+    <section class="w-full px-4 md:px-10 py-20">
+        <div class="max-w-[960px] mx-auto">
+            <div class="prose prose-lg dark:prose-invert max-w-none">
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">Where It All Began</h2>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                        Gancheng B&B was born from a simple dream: to create a sanctuary where travelers could experience the authentic beauty of Hualien while enjoying the warmth of professional hospitality. In 2015, we opened our doors in the peaceful village of Gancheng, nestled between the majestic Central Mountain Range and the Pacific Ocean.
+                    </p>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                        What started as a small family-run guesthouse has grown into a beloved retreat for visitors from around the world, yet we've never lost sight of our core values: attentive service, genuine care, and a deep respect for the natural environment that surrounds us.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 my-12">
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
+                        <div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
+                            <span class="material-symbols-outlined text-3xl">eco</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Sustainable Tourism</h3>
+                        <p class="text-slate-600 dark:text-slate-300">
+                            We believe in preserving Hualien's pristine environment for future generations. Our B&B uses eco-friendly practices, from solar heating to locally sourced organic breakfast ingredients.
+                        </p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
+                        <div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
+                            <span class="material-symbols-outlined text-3xl">diversity_3</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Local Community</h3>
+                        <p class="text-slate-600 dark:text-slate-300">
+                            We work closely with local farmers, artisans, and tour guides to ensure our guests experience authentic Hualien culture while supporting the community that welcomed us.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">Our Philosophy</h2>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                        At Gancheng B&B, we believe that true hospitality goes beyond providing a comfortable bed. It's about creating moments of connection—with nature, with local culture, and with yourself. Every detail, from the carefully selected tea in your room to the personalized recommendations for hidden trails and local eateries, is designed to enrich your Hualien experience.
+                    </p>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                        Our team approaches each day with the mindset of hosts welcoming friends into our home. We take pride in our attentive, professional service that anticipates your needs while respecting your privacy and independence.
+                    </p>
+                </div>
+
+                <div class="bg-gradient-to-br from-primary/5 to-blue-50 dark:from-primary/10 dark:to-gray-800 rounded-2xl p-8 md:p-12 my-12">
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">The Gancheng Experience</h2>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                        Wake up to the sound of birds chirping and mountains calling. Enjoy breakfast featuring fresh vegetables from nearby farms and homemade preserves. Spend your days exploring Taroko Gorge, cycling through rice paddies, or simply reading on your private balcony as clouds drift over the peaks.
+                    </p>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                        In the evening, return to find your room refreshed, local tea waiting, and our staff ready with insider tips for tomorrow's adventures. This is the rhythm of life at Gancheng B&B—peaceful, intentional, and deeply connected to the landscape around us.
+                    </p>
+                </div>
+
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">Looking Forward</h2>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                        As we continue to grow, our commitment remains unchanged: to offer a haven where travelers can slow down, breathe deeply, and experience Hualien's magic through the lens of genuine hospitality. We invite you to become part of our story and create your own memories in this beautiful corner of Taiwan.
+                    </p>
+                </div>
+
+                <div class="text-center mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+                    <p class="text-slate-600 dark:text-slate-300 text-lg mb-6">Ready to experience Gancheng for yourself?</p>
+                    <a href="{{ url_for('all_rooms') }}" class="inline-flex cursor-pointer items-center justify-center rounded-lg h-12 px-8 bg-primary text-white text-base font-bold shadow-lg shadow-primary/20 hover:bg-blue-700 transition-all">
+                        <span class="truncate">Explore Our Rooms</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

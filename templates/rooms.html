@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}All Rooms - Gancheng B&B{% endblock %}
+
+{% block content %}
+    <section class="w-full px-4 md:px-10 py-12 md:py-20 bg-gradient-to-br from-primary/5 to-blue-50 dark:from-primary/10 dark:to-gray-800">
+        <div class="max-w-[1280px] mx-auto text-center">
+            <span class="text-primary font-bold tracking-wider text-sm uppercase mb-2 block">Accommodations</span>
+            <h1 class="text-slate-900 dark:text-white text-4xl md:text-5xl font-bold leading-tight mb-4">All Our Rooms</h1>
+            <p class="text-slate-600 dark:text-slate-300 text-lg max-w-2xl mx-auto">
+                Discover your perfect sanctuary. Each room is thoughtfully designed to provide comfort and tranquility during your stay in Hualien.
+            </p>
+        </div>
+    </section>
+
+    <!-- Rooms Grid -->
+    <section class="w-full px-4 md:px-10 py-12 md:py-20">
+        <div class="max-w-[1280px] mx-auto">
+            {% if rooms %}
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {% for room in rooms %}
+                <a href="{{ url_for('room_detail', room_id=room.id) }}" class="group cursor-pointer flex flex-col gap-4 bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
+                    <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100 relative">
+                        <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" 
+                             data-alt="{{ room.name }} - {{ room.description }}" 
+                             style='background-image: {% if room.image_url %}url("{{ room.image_url }}"){% else %}linear-gradient(135deg, #667eea 0%, #764ba2 100%){% endif %};'></div>
+                        <div class="absolute top-3 right-3 bg-white/90 dark:bg-black/80 px-3 py-1 rounded-full text-xs font-bold text-slate-900 dark:text-white backdrop-blur-sm">
+                            {{ room.room_type }}
+                        </div>
+                        {% if room.is_available %}
+                        <div class="absolute top-3 left-3 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            Available
+                        </div>
+                        {% else %}
+                        <div class="absolute top-3 left-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            Unavailable
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="p-6 flex flex-col gap-3">
+                        <h3 class="text-slate-900 dark:text-white text-xl font-bold group-hover:text-primary transition-colors">{{ room.name }}</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm line-clamp-2">{{ room.description }}</p>
+                        
+                        <div class="flex items-center gap-4 text-sm text-slate-600 dark:text-slate-400 mt-2">
+                            <div class="flex items-center gap-1">
+                                <span class="material-symbols-outlined text-[18px]">group</span>
+                                <span>{{ room.max_guests }} guests</span>
+                            </div>
+                        </div>
+
+                        {% if room.amenities %}
+                        <div class="flex gap-2 text-slate-400 flex-wrap">
+                            {% for amenity in room.amenities.split(',')[:5] %}
+                            <span class="material-symbols-outlined text-[20px]" title="{{ amenity.strip() }}">
+                                {% if 'wifi' in amenity.lower() or 'WiFi' in amenity %}wifi
+                                {% elif 'ac' in amenity.lower() or 'AC' in amenity %}ac_unit
+                                {% elif 'bath' in amenity.lower() %}bathtub
+                                {% elif 'garden' in amenity.lower() or 'yard' in amenity.lower() %}yard
+                                {% elif 'kitchen' in amenity.lower() %}kitchen
+                                {% elif 'tv' in amenity.lower() %}tv
+                                {% else %}check_circle{% endif %}
+                            </span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        
+                        <div class="flex items-center justify-between mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+                            <div>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">From</p>
+                                <p class="text-2xl font-bold text-primary">NT$ {{ "{:,.0f}".format(room.price_per_night) }}</p>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">per night</p>
+                            </div>
+                            <div class="flex items-center gap-1 text-primary font-medium group-hover:gap-2 transition-all">
+                                <span>View Details</span>
+                                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="text-center py-20">
+                <span class="material-symbols-outlined text-6xl text-slate-300 dark:text-slate-600 mb-4 block">hotel</span>
+                <p class="text-slate-500 dark:text-slate-400 text-lg">No rooms available at the moment.</p>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}

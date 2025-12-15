@@ -1,0 +1,258 @@
+{% extends "base.html" %}
+
+{% block title %}Gancheng B&B - Serenity in Hualien{% endblock %}
+
+{% block tailwind_plugins %},container-queries{% endblock %}
+
+{% block tailwind_extend %}
+borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+{% endblock %}
+
+{% block body %}
+<body class="font-display antialiased text-slate-900 bg-background-light dark:bg-background-dark">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-gray-200 dark:bg-background-dark/90 dark:border-gray-800">
+<div class="px-4 md:px-10 py-3 flex items-center justify-between max-w-[1280px] mx-auto w-full">
+<div class="flex items-center gap-4 text-slate-900 dark:text-white">
+<div class="size-8 text-primary">
+<svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-xl font-bold leading-tight tracking-tight">Gancheng B&amp;B</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-8 items-center">
+<nav class="flex items-center gap-8">
+<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="{{ url_for('index') }}">Home</a>
+<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="#rooms">Rooms</a>
+<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="#location">Location</a>
+{% if current_user.is_authenticated %}
+<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="{{ url_for('profile') }}">My Bookings</a>
+{% if current_user.is_admin %}
+<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="{{ url_for('admin_dashboard') }}">Admin</a>
+{% endif %}
+{% endif %}
+</nav>
+{% if current_user.is_authenticated %}
+<div class="flex items-center gap-4">
+<span class="text-sm text-slate-600 dark:text-slate-300">{{ current_user.username }}</span>
+<a href="{{ url_for('logout') }}" class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white text-sm font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+<span class="truncate">Logout</span>
+</a>
+</div>
+{% else %}
+<div class="flex items-center gap-3">
+<a href="{{ url_for('login') }}" class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors">
+Sign In
+</a>
+<a href="{{ url_for('register') }}" class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:bg-blue-700 transition-all">
+<span class="truncate">Sign Up</span>
+</a>
+</div>
+{% endif %}
+</div>
+<!-- Mobile Menu Icon (Placeholder for functionality) -->
+<button class="md:hidden text-slate-900 dark:text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="flex-1 w-full max-w-[1280px] mx-auto flex flex-col">
+<!-- Hero Section -->
+<section class="w-full px-4 md:px-10 py-5">
+<div class="@container">
+<div class="flex min-h-[520px] flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-xl md:rounded-2xl items-center justify-center p-8 relative overflow-hidden" data-alt="Misty mountains and lush green landscape of Hualien" style='background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBJX_27S-ucOW4weKAqsuShKalIB-DaBA7nGTlaHg0ZzJT6Vk_f8HCNRcfXx_WP9LxjA7SX04O2yHY-9LWKeWXwW9dvWrycULAzUvew6I8nsA1LYYmoCzM0Ow2ttpFBBMFLMyJ_qsMJyN1NC4Ufj2ccMM_JIzIkc1Z6sUHMznUapW8l81jfYkb74oFsE1EJKfTfueXRWt8bU2mx8BPNcOLwiqBqjOoJZG_ACr4FGUJugOYFE-9tCHiiIrj047PglbYS66Vfq0ASDSw");'>
+<div class="flex flex-col gap-4 text-center max-w-3xl z-10">
+<h1 class="text-white text-4xl md:text-6xl font-black leading-tight tracking-tight drop-shadow-md">
+                                Experience Serenity in Hualien
+                            </h1>
+<h2 class="text-white/90 text-lg md:text-xl font-medium leading-relaxed drop-shadow-sm">
+                                A tranquil escape in the heart of Gancheng Village, where mountains meet the sky.
+                            </h2>
+</div>
+<a href="{{ url_for('all_rooms') }}" class="z-10 mt-4 flex cursor-pointer items-center justify-center rounded-lg h-12 px-8 bg-white text-primary text-base font-bold shadow-xl hover:bg-slate-100 transition-colors">
+<span class="truncate">Explore Our Rooms</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Philosophy Feature Section -->
+<section class="w-full px-4 md:px-10 py-12 md:py-20">
+<div class="flex flex-col gap-12 max-w-[960px] mx-auto">
+<div class="flex flex-col md:flex-row gap-8 items-start justify-between">
+<div class="flex flex-col gap-6 max-w-2xl">
+<h2 class="text-slate-900 dark:text-white text-3xl md:text-4xl font-bold leading-tight">
+                                Where Professional Service Meets Nature
+                            </h2>
+<p class="text-slate-600 dark:text-slate-300 text-lg leading-relaxed">
+                                Our philosophy is grounded in professional, attentive service to ensure your stay is as peaceful as the surrounding mountains. Immerse yourself in the tranquility of Gancheng Village, Ji'an Township. We blend modern comfort with the raw beauty of Hualien.
+                            </p>
+<a href="{{ url_for('about') }}" class="text-primary font-bold text-base flex items-center gap-2 hover:underline w-fit group">
+                                Read Our Story 
+                                <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Feature 1 -->
+<div class="flex flex-col gap-4 rounded-xl border border-gray-200 bg-white dark:bg-gray-800 dark:border-gray-700 p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">concierge</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">Professional Service</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Dedicated staff ready to assist with your itinerary and needs around the clock.</p>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="flex flex-col gap-4 rounded-xl border border-gray-200 bg-white dark:bg-gray-800 dark:border-gray-700 p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">spa</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">Attentive Care</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">We pay attention to every detail, from fresh linens to locally sourced welcome teas.</p>
+</div>
+</div>
+<!-- Feature 3 -->
+<div class="flex flex-col gap-4 rounded-xl border border-gray-200 bg-white dark:bg-gray-800 dark:border-gray-700 p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">landscape</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">Peaceful Atmosphere</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Located away from the city noise, enjoy the sounds of nature and fresh mountain air.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Rooms Section -->
+<section id="rooms" class="w-full px-4 md:px-10 py-10 bg-white dark:bg-gray-900 rounded-3xl my-8">
+<div class="max-w-[960px] mx-auto flex flex-col">
+<div class="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
+<div class="flex flex-col">
+<span class="text-primary font-bold tracking-wider text-sm uppercase mb-2">Accommodations</span>
+<h2 class="text-slate-900 dark:text-white text-3xl md:text-4xl font-bold leading-tight">Your Private Sanctuary</h2>
+</div>
+<a class="hidden md:flex text-slate-600 dark:text-slate-400 font-medium hover:text-primary items-center gap-1" href="{{ url_for('all_rooms') }}">
+                            View all rooms <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+{% for room in rooms %}
+<!-- {{ room.name }} -->
+<a href="{{ url_for('room_detail', room_id=room.id) }}" class="group cursor-pointer flex flex-col gap-4">
+<div class="w-full aspect-[4/3] overflow-hidden rounded-xl bg-gray-100 relative">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" 
+     data-alt="{{ room.name }} - {{ room.description }}" 
+     style='background-image: {% if room.image_url %}url("{{ room.image_url }}"){% else %}linear-gradient(135deg, #667eea 0%, #764ba2 100%){% endif %};'></div>
+<div class="absolute top-3 right-3 bg-white/90 dark:bg-black/80 px-3 py-1 rounded-full text-xs font-bold text-slate-900 dark:text-white backdrop-blur-sm">
+    {{ room.room_type }}
+</div>
+</div>
+<div>
+<h3 class="text-slate-900 dark:text-white text-xl font-bold mb-1 group-hover:text-primary transition-colors">{{ room.name }}</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm">{{ room.description[:100] }}{% if room.description|length > 100 %}...{% endif %}</p>
+{% if room.amenities %}
+<div class="mt-3 flex gap-2 text-slate-400">
+{% for amenity in room.amenities.split(',')[:3] %}
+<span class="material-symbols-outlined text-[20px]" title="{{ amenity.strip() }}">
+{% if 'wifi' in amenity.lower() or 'WiFi' in amenity %}wifi
+{% elif 'ac' in amenity.lower() or 'AC' in amenity %}ac_unit
+{% elif 'bath' in amenity.lower() %}bathtub
+{% elif 'garden' in amenity.lower() or 'yard' in amenity.lower() %}yard
+{% elif 'kitchen' in amenity.lower() %}kitchen
+{% elif 'tv' in amenity.lower() %}tv
+{% else %}check_circle{% endif %}
+</span>
+{% endfor %}
+</div>
+{% endif %}
+<p class="text-primary font-bold mt-2">NT$ {{ "{:,.0f}".format(room.price_per_night) }}/night</p>
+</div>
+</a>
+{% endfor %}
+</div>
+<div class="md:hidden mt-6 flex justify-center">
+<a class="text-primary font-bold text-sm flex items-center gap-1" href="{{ url_for('all_rooms') }}">
+                            View all rooms <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Location Section -->
+<section id="location" class="w-full px-4 md:px-10 py-12 md:py-20">
+<div class="max-w-[960px] mx-auto grid md:grid-cols-2 gap-10 items-center">
+<div class="flex flex-col gap-6 order-2 md:order-1">
+<div class="flex flex-col gap-3">
+<span class="text-primary font-bold tracking-wider text-sm uppercase">Location</span>
+<h2 class="text-slate-900 dark:text-white text-3xl md:text-4xl font-bold leading-tight">Discover Gancheng Village</h2>
+</div>
+<p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+                            Nestled in Ji'an Township, our B&amp;B is perfectly positioned for you to explore the natural wonders of Hualien. We are just a short drive from the city center yet surrounded by tranquil rice paddies and the majestic Central Mountain Range.
+                        </p>
+<div class="flex flex-col gap-3 mt-2">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">location_on</span>
+<div>
+<p class="font-bold text-slate-900 dark:text-white">Our Address</p>
+<p class="text-slate-500 text-sm">No. 123, Gancheng 2nd St, Ji'an Township, Hualien County, Taiwan</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">train</span>
+<div>
+<p class="font-bold text-slate-900 dark:text-white">Transport</p>
+<p class="text-slate-500 text-sm">15 mins from Hualien Train Station</p>
+</div>
+</div>
+</div>
+<button class="mt-2 w-fit flex items-center justify-center rounded-lg h-10 px-5 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white text-sm font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                            Open in Google Maps
+                        </button>
+</div>
+<div class="order-1 md:order-2 h-full min-h-[300px] w-full bg-slate-100 rounded-2xl overflow-hidden relative">
+<!-- Stylized Map Placeholder -->
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Map view of Hualien showing mountains and coast" data-location="Hualien" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDDYOndNgMZInR2KttZ5xhjQhELS4YptzOwG01Bk6mUp_9mh6VsKLoQbqW-W-9HwTHu51RGvIKfRXiPgymdXjwQL4FW3At-B8ydLCAjwpgUQwUM-rAivf-Jn_lVuvHXCVoXVGr82HqM62dkJfZROGKXYHzXFQ8HXdROfyNQL3FMHyC5Y_-iT6dFbsaGalkfElDBLkHYNJjp6EOMZKngxFgYWzTOUQwU3GKMjyYq0-rLggoTu72w2rTLId9Zrvtup46-kfwWcb4HvDE");'>
+<div class="absolute inset-0 bg-black/10"></div>
+</div>
+<!-- Marker Pin Overlay -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+<div class="bg-primary text-white p-2 rounded-full shadow-lg animate-bounce">
+<span class="material-symbols-outlined block">home_pin</span>
+</div>
+<div class="bg-white px-3 py-1 rounded-md shadow-md mt-2 text-xs font-bold text-slate-900">
+                                 We are here
+                             </div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-white border-t border-slate-200 dark:bg-background-dark dark:border-slate-800 py-10">
+<div class="max-w-[1280px] mx-auto px-4 md:px-10 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-3">
+<div class="size-6 text-slate-900 dark:text-white">
+<svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="text-lg font-bold text-slate-900 dark:text-white">Gancheng B&amp;B</span>
+</div>
+<div class="flex flex-wrap justify-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-400">
+<a class="hover:text-primary" href="{{ url_for('about') }}">About Us</a>
+<a class="hover:text-primary" href="{{ url_for('all_rooms') }}">Rooms</a>
+<a class="hover:text-primary" href="{{ url_for('contact_page') }}">Contact</a>
+<a class="hover:text-primary" href="#">Privacy Policy</a>
+</div>
+<div class="text-slate-500 text-sm">
+                    © 2024 Gancheng B&amp;B. All rights reserved.
+                </div>
+</div>
+</footer>
+</div>
+</body>
+{% endblock %}
