@@ -43,7 +43,8 @@
                 <h2 class="text-xl font-bold leading-tight tracking-tight">Gancheng B&B</h2>
             </a>
             {% block navigation %}
-            <nav class="flex items-center gap-8">
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-8">
                 <a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="{{ url_for('index') }}">Home</a>
                 <a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="{{ url_for('all_rooms') }}">Rooms</a>
                 <a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="{{ url_for('about') }}">About</a>
@@ -57,24 +58,82 @@
             </nav>
             {% endblock %}
             {% block auth_section %}
+            <!-- Desktop Auth Buttons -->
             {% if current_user.is_authenticated %}
-            <div class="flex items-center gap-4">
+            <div class="hidden md:flex items-center gap-4">
                 <span class="text-sm text-slate-600 dark:text-slate-300">{{ current_user.username }}</span>
                 <a href="{{ url_for('logout') }}" class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white text-sm font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
                     <span class="truncate">Logout</span>
                 </a>
             </div>
             {% else %}
-            <div class="flex items-center gap-3">
+            <div class="hidden md:flex items-center gap-3">
                 <a href="{{ url_for('login') }}" class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors">Sign In</a>
                 <a href="{{ url_for('register') }}" class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:bg-blue-700 transition-all">
                     <span class="truncate">Sign Up</span>
                 </a>
             </div>
             {% endif %}
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="md:hidden p-2 text-slate-700 dark:text-slate-200 hover:text-primary transition-colors">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
             {% endblock %}
         </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-background-dark">
+            <nav class="px-4 py-4 flex flex-col gap-3">
+                <a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors py-2" href="{{ url_for('index') }}">Home</a>
+                <a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors py-2" href="{{ url_for('all_rooms') }}">Rooms</a>
+                <a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors py-2" href="{{ url_for('about') }}">About</a>
+                <a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors py-2" href="{{ url_for('contact_page') }}">Contact</a>
+                {% if current_user.is_authenticated %}
+                <a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors py-2" href="{{ url_for('profile') }}">My Bookings</a>
+                {% if current_user.is_admin %}
+                <a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors py-2" href="{{ url_for('admin_dashboard') }}">Admin</a>
+                {% endif %}
+                <div class="border-t border-gray-200 dark:border-gray-800 pt-3 mt-2">
+                    <div class="text-sm text-slate-600 dark:text-slate-300 mb-3">{{ current_user.username }}</div>
+                    <a href="{{ url_for('logout') }}" class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white text-sm font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+                        <span class="truncate">Logout</span>
+                    </a>
+                </div>
+                {% else %}
+                <div class="border-t border-gray-200 dark:border-gray-800 pt-3 mt-2 flex flex-col gap-3">
+                    <a href="{{ url_for('login') }}" class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white text-sm font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+                        <span class="truncate">Sign In</span>
+                    </a>
+                    <a href="{{ url_for('register') }}" class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:bg-blue-700 transition-all">
+                        <span class="truncate">Sign Up</span>
+                    </a>
+                </div>
+                {% endif %}
+            </nav>
+        </div>
     </header>
+    
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+                
+                // Close menu when clicking on a link
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+        });
+    </script>
 
     <!-- Flash Messages -->
     {% with messages = get_flashed_messages(with_categories=true) %}
