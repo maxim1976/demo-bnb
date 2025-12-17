@@ -152,8 +152,9 @@ mobileMenu.classList.add('hidden');
 <span class="material-symbols-outlined text-3xl">concierge</span>
 </div>
 <div class="flex flex-col gap-2">
-<h3 class="text-slate-900 dark:text-white text-lg font-bold">Professional Service</h3>
-<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Dedicated staff ready to assist with your itinerary and needs around the clock.</p>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">專業服務</h3>
+<p class="text-slate-400 dark:text-slate-500 text-xs">Professional Service</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">全天候專業的員工隨時準備協助您的行程和需求。</p>
 </div>
 </div>
 <!-- Feature 2 -->
@@ -162,8 +163,9 @@ mobileMenu.classList.add('hidden');
 <span class="material-symbols-outlined text-3xl">spa</span>
 </div>
 <div class="flex flex-col gap-2">
-<h3 class="text-slate-900 dark:text-white text-lg font-bold">Attentive Care</h3>
-<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">We pay attention to every detail, from fresh linens to locally sourced welcome teas.</p>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">用心關懷</h3>
+<p class="text-slate-400 dark:text-slate-500 text-xs">Attentive Care</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">我們關注每一個細節，從新鮮的床單到本地採購的迎賓茶。</p>
 </div>
 </div>
 <!-- Feature 3 -->
@@ -172,8 +174,9 @@ mobileMenu.classList.add('hidden');
 <span class="material-symbols-outlined text-3xl">landscape</span>
 </div>
 <div class="flex flex-col gap-2">
-<h3 class="text-slate-900 dark:text-white text-lg font-bold">Peaceful Atmosphere</h3>
-<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Located away from the city noise, enjoy the sounds of nature and fresh mountain air.</p>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">寧靜氛圍</h3>
+<p class="text-slate-400 dark:text-slate-500 text-xs">Peaceful Atmosphere</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">遠離城市的喧囂，享受大自然的聲音和清新的山間空氣。</p>
 </div>
 </div>
 </div>
@@ -184,11 +187,12 @@ mobileMenu.classList.add('hidden');
 <div class="max-w-[960px] mx-auto flex flex-col">
 <div class="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
 <div class="flex flex-col">
-<span class="text-primary font-bold tracking-wider text-sm uppercase mb-2">Accommodations</span>
-<h2 class="text-slate-900 dark:text-white text-3xl md:text-4xl font-bold leading-tight">Your Private Sanctuary</h2>
+<span class="text-primary font-bold tracking-wider text-sm uppercase mb-2">住宿房型 · Accommodations</span>
+<h2 class="text-slate-900 dark:text-white text-3xl md:text-4xl font-bold leading-tight">您的私人聖所</h2>
+<p class="text-slate-500 dark:text-slate-400 text-base mt-1">Your Private Sanctuary</p>
 </div>
 <a class="hidden md:flex text-slate-600 dark:text-slate-400 font-medium hover:text-primary items-center gap-1" href="{{ url_for('all_rooms') }}">
-                            View all rooms <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                            查看所有房型 · View all rooms <span class="material-symbols-outlined text-sm">arrow_forward</span>
 </a>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -221,14 +225,14 @@ mobileMenu.classList.add('hidden');
 {% endfor %}
 </div>
 {% endif %}
-<p class="text-primary font-bold mt-2">NT$ {{ "{:,.0f}".format(room.price_per_night) }}/night</p>
+<p class="text-primary font-bold mt-2">NT$ {{ "{:,.0f}".format(room.price_per_night) }} / 每晚</p>
 </div>
 </a>
 {% endfor %}
 </div>
 <div class="md:hidden mt-6 flex justify-center">
 <a class="text-primary font-bold text-sm flex items-center gap-1" href="{{ url_for('all_rooms') }}">
-                            View all rooms <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                            查看所有房型 · View all rooms <span class="material-symbols-outlined text-sm">arrow_forward</span>
 </a>
 </div>
 </div>
@@ -238,30 +242,36 @@ mobileMenu.classList.add('hidden');
 <div class="max-w-[960px] mx-auto grid md:grid-cols-2 gap-10 items-center">
 <div class="flex flex-col gap-6 order-2 md:order-1">
 <div class="flex flex-col gap-3">
-<span class="text-primary font-bold tracking-wider text-sm uppercase">Location</span>
-<h2 class="text-slate-900 dark:text-white text-3xl md:text-4xl font-bold leading-tight">Discover Gancheng Village</h2>
+<span class="text-primary font-bold tracking-wider text-sm uppercase">地理位置 · Location</span>
+<h2 class="text-slate-900 dark:text-white text-3xl md:text-4xl font-bold leading-tight">探索甘城村</h2>
+<p class="text-slate-500 dark:text-slate-400 text-base">Discover Gancheng Village</p>
 </div>
 <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
-                            Nestled in Ji'an Township, our B&amp;B is perfectly positioned for you to explore the natural wonders of Hualien. We are just a short drive from the city center yet surrounded by tranquil rice paddies and the majestic Central Mountain Range.
+                            位於吉安鄉，我們的民宿地理位置優越，讓您可以探索花蓮的自然奇觀。距離市中心僅需短程車程，卻被寧靜的稻田和壯麗的中央山脈所環繞。
+                        </p>
+                <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                            Nestled in Ji'an Township, our B&B is perfectly positioned for you to explore the natural wonders of Hualien. We are just a short drive from the city center yet surrounded by tranquil rice paddies and the majestic Central Mountain Range.
                         </p>
 <div class="flex flex-col gap-3 mt-2">
 <div class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary mt-1">location_on</span>
 <div>
-<p class="font-bold text-slate-900 dark:text-white">Our Address</p>
-<p class="text-slate-500 text-sm">No. 123, Gancheng 2nd St, Ji'an Township, Hualien County, Taiwan</p>
+<p class="font-bold text-slate-900 dark:text-white">我們的地址 · Our Address</p>
+<p class="text-slate-500 text-sm">花蓮縣吉安鄉甘城二街23號</p>
+<p class="text-slate-400 text-xs">No. 123, Gancheng 2nd St, Ji'an Township, Hualien County</p>
 </div>
 </div>
 <div class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary mt-1">train</span>
 <div>
-<p class="font-bold text-slate-900 dark:text-white">Transport</p>
-<p class="text-slate-500 text-sm">15 mins from Hualien Train Station</p>
+<p class="font-bold text-slate-900 dark:text-white">交通方式 · Transport</p>
+<p class="text-slate-500 text-sm">距離花蓮火車站15分鐘車程</p>
+<p class="text-slate-400 text-xs">15 mins from Hualien Train Station</p>
 </div>
 </div>
 </div>
 <button class="mt-2 w-fit flex items-center justify-center rounded-lg h-10 px-5 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white text-sm font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
-                            Open in Google Maps
+                            在 Google 地圖中開啟 · Open in Google Maps
                         </button>
 </div>
 <div class="order-1 md:order-2 h-full min-h-[300px] w-full bg-slate-100 rounded-2xl overflow-hidden relative">

@@ -1,12 +1,16 @@
 {% extends "base.html" %}
 
-{% block title %}Our Story - Gancheng B&B{% endblock %}
+{% block title %}我們的故事 · Our Story - Gancheng B&B{% endblock %}
 
 {% block content %}
     <section class="w-full px-4 md:px-10 py-20 bg-gradient-to-br from-primary/5 to-blue-50 dark:from-primary/10 dark:to-gray-800">
         <div class="max-w-[960px] mx-auto text-center">
-            <h1 class="text-slate-900 dark:text-white text-5xl md:text-6xl font-bold leading-tight mb-6">Our Story</h1>
+            <h1 class="text-slate-900 dark:text-white text-5xl md:text-6xl font-bold leading-tight mb-6">我們的故事</h1>
+            <p class="text-slate-500 dark:text-slate-400 text-lg mb-4">Our Story</p>
             <p class="text-slate-600 dark:text-slate-300 text-xl max-w-2xl mx-auto">
+                一段充滿熱情、奉獻與熱愛花蓮自然之美的旅程
+            </p>
+            <p class="text-slate-500 dark:text-slate-400 text-base max-w-2xl mx-auto mt-2">
                 A journey of passion, dedication, and the love for Hualien's natural beauty
             </p>
         </div>
@@ -17,11 +21,18 @@
         <div class="max-w-[960px] mx-auto">
             <div class="prose prose-lg dark:prose-invert max-w-none">
                 <div class="mb-12">
-                    <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">Where It All Began</h2>
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">起源</h2>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm mb-3">Where It All Began</p>
                     <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                        甘城民宿誕生於一個簡單的夢想：創造一個讓旅客能夠體驗花蓮真實之美，同時享受專業溫馨待客的避風港。2015年，我們在寧靜的甘城村開啟了大門，這裡位於壯麗的中央山脈與太平洋之間。
+                    </p>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-3">
                         Gancheng B&B was born from a simple dream: to create a sanctuary where travelers could experience the authentic beauty of Hualien while enjoying the warmth of professional hospitality. In 2015, we opened our doors in the peaceful village of Gancheng, nestled between the majestic Central Mountain Range and the Pacific Ocean.
                     </p>
                     <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                        從一間小型家族經營的民宿變成了來自世界各地遊客所愛戴的休憩之地，然而我們從未忘記核心價值觀：細心的服務、真誠的關懷以及對周圍自然環境的深深尊重。
+                    </p>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
                         What started as a small family-run guesthouse has grown into a beloved retreat for visitors from around the world, yet we've never lost sight of our core values: attentive service, genuine care, and a deep respect for the natural environment that surrounds us.
                     </p>
                 </div>
@@ -31,18 +42,20 @@
                         <div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
                             <span class="material-symbols-outlined text-3xl">eco</span>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Sustainable Tourism</h3>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">永續旅遊</h3>
+                        <p class="text-slate-400 dark:text-slate-500 text-xs mb-2">Sustainable Tourism</p>
                         <p class="text-slate-600 dark:text-slate-300">
-                            We believe in preserving Hualien's pristine environment for future generations. Our B&B uses eco-friendly practices, from solar heating to locally sourced organic breakfast ingredients.
+                            我們相信為後代保護花蓮的原始環境。我們的民宿採用環保做法，從太陽能加熱到本地採購的有機早餐食材。
                         </p>
                     </div>
                     <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
                         <div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
                             <span class="material-symbols-outlined text-3xl">diversity_3</span>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Local Community</h3>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">在地社區</h3>
+                        <p class="text-slate-400 dark:text-slate-500 text-xs mb-2">Local Community</p>
                         <p class="text-slate-600 dark:text-slate-300">
-                            We work closely with local farmers, artisans, and tour guides to ensure our guests experience authentic Hualien culture while supporting the community that welcomed us.
+                            我們與當地農民、工藝師和導遊緊密合作，確保我們的客人體驗真實的花蓮文化，同時支持歡迎我們的社區。
                         </p>
                     </div>
                 </div>
@@ -77,7 +90,7 @@
                 <div class="text-center mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
                     <p class="text-slate-600 dark:text-slate-300 text-lg mb-6">Ready to experience Gancheng for yourself?</p>
                     <a href="{{ url_for('all_rooms') }}" class="inline-flex cursor-pointer items-center justify-center rounded-lg h-12 px-8 bg-primary text-white text-base font-bold shadow-lg shadow-primary/20 hover:bg-blue-700 transition-all">
-                        <span class="truncate">Explore Our Rooms</span>
+                        <span class="truncate">探索我們的客房 · Explore Our Rooms</span>
                     </a>
                 </div>
             </div>
