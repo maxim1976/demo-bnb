@@ -24,13 +24,13 @@ borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9
 </div>
 <div class="hidden md:flex flex-1 justify-end gap-8 items-center">
 <nav class="flex items-center gap-8">
-<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="{{ url_for('index') }}">Home</a>
-<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="#rooms">Rooms</a>
-<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="#location">Location</a>
+<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="{{ url_for('index') }}">首頁</a>
+<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="#rooms">客房</a>
+<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="#location">地理位置</a>
 {% if current_user.is_authenticated %}
-<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="{{ url_for('profile') }}">My Bookings</a>
+<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="{{ url_for('profile') }}">我的訂房</a>
 {% if current_user.is_admin %}
-<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="{{ url_for('admin_dashboard') }}">Admin</a>
+<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors" href="{{ url_for('admin_dashboard') }}">管理後台</a>
 {% endif %}
 {% endif %}
 </nav>
@@ -38,16 +38,16 @@ borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9
 <div class="flex items-center gap-4">
 <span class="text-sm text-slate-600 dark:text-slate-300">{{ current_user.username }}</span>
 <a href="{{ url_for('logout') }}" class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white text-sm font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
-<span class="truncate">Logout</span>
+<span class="truncate">登出</span>
 </a>
 </div>
 {% else %}
 <div class="flex items-center gap-3">
 <a href="{{ url_for('login') }}" class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors">
-Sign In
+登入
 </a>
 <a href="{{ url_for('register') }}" class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:bg-blue-700 transition-all">
-<span class="truncate">Sign Up</span>
+<span class="truncate">註冊</span>
 </a>
 </div>
 {% endif %}
@@ -61,27 +61,27 @@ Sign In
 <!-- Mobile Menu -->
 <div id="mobileMenu" class="hidden md:hidden border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-background-dark">
 <nav class="px-4 py-4 flex flex-col gap-3">
-<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors py-2" href="{{ url_for('index') }}">Home</a>
-<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors py-2" href="#rooms">Rooms</a>
-<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors py-2" href="#location">Location</a>
+<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors py-2" href="{{ url_for('index') }}">首頁</a>
+<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors py-2" href="#rooms">客房</a>
+<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors py-2" href="#location">地理位置</a>
 {% if current_user.is_authenticated %}
-<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors py-2" href="{{ url_for('profile') }}">My Bookings</a>
+<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors py-2" href="{{ url_for('profile') }}">我的訂房</a>
 {% if current_user.is_admin %}
-<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors py-2" href="{{ url_for('admin_dashboard') }}">Admin</a>
+<a class="text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-primary transition-colors py-2" href="{{ url_for('admin_dashboard') }}">管理後台</a>
 {% endif %}
 <div class="border-t border-gray-200 dark:border-gray-800 pt-3 mt-2">
 <div class="text-sm text-slate-600 dark:text-slate-300 mb-3">{{ current_user.username }}</div>
 <a href="{{ url_for('logout') }}" class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white text-sm font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
-<span class="truncate">Logout</span>
+<span class="truncate">登出</span>
 </a>
 </div>
 {% else %}
 <div class="border-t border-gray-200 dark:border-gray-800 pt-3 mt-2 flex flex-col gap-3">
 <a href="{{ url_for('login') }}" class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white text-sm font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
-<span class="truncate">Sign In</span>
+<span class="truncate">登入</span>
 </a>
 <a href="{{ url_for('register') }}" class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:bg-blue-700 transition-all">
-<span class="truncate">Sign Up</span>
+<span class="truncate">註冊</span>
 </a>
 </div>
 {% endif %}
